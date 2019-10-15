@@ -6,6 +6,7 @@ namespace Zadatak3
 {
 	class Program
 	{
+		//nemam view dio pa sam sve pozive i prikaze ostavila u ovoj datoteci
 		static void Main(string[] args)
 		{
 			Kontroler kontroler = new Kontroler();
@@ -129,30 +130,10 @@ namespace Zadatak3
 			Console.WriteLine("Molimo unesite potrebne podatke o učeniku:");
 
 			Console.Write("Ime:");
-			string ime;
-			while (true)
-			{
-				ime = Console.ReadLine();
-				if (ime.Length > 50)
-				{
-					Console.WriteLine("Ime ne može biti duže od 50 znakova. Molimo unesite kraće ime.");
-					continue;
-				}
-				break;
-			}
+			string ime = unosTeksta(50);
 
 			Console.Write("Prezime:");
-			string prezime;
-			while (true)
-			{
-				prezime = Console.ReadLine();
-				if (prezime.Length > 50)
-				{
-					Console.WriteLine("Prezime ne može biti duže od 50 znakova. Molimo unesite kraće prezime.");
-					continue;
-				}
-				break;
-			}
+			string prezime = unosTeksta(50);
 
 			Console.Write("Datum rodenja (dd.mm.gggg.):");
 			DateTime datumRodjenja;
@@ -198,6 +179,24 @@ namespace Zadatak3
 			}
 
 			return broj;
+		}
+
+		private static string unosTeksta(int maxDuzina)
+		{
+			string tekst;
+
+			while (true)
+			{
+				tekst = Console.ReadLine();
+				if (tekst.Length > maxDuzina)
+				{
+					Console.WriteLine($"Tekst ne može biti duži od {maxDuzina} znakova. Molimo unesite kraći tekst.");
+					continue;
+				}
+				break;
+			}
+
+			return tekst;
 		}
 
 		private static void prikaziUcenike(IEnumerable<Ucenik> ucenici)

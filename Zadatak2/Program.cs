@@ -34,6 +34,7 @@ namespace Zadatak2
 			List<uint> djeljivi3 = Visekratnici.IzbaciVisekratnike(Visekratnici.NadiVisekratnike(brojevi, 3), 2);
 			List<uint> ostali = Visekratnici.IzbaciVisekratnike(Visekratnici.IzbaciVisekratnike(brojevi, 2), 3);
 
+			//program ne izbacuje duple brojeve, nego ih sve ispiše
 			Console.WriteLine($"Uneseni brojevi:{string.Join(",", brojevi)}");
 			Console.WriteLine($"Brojevi djeljivi s 2 i s 3: {string.Join(",", djeljivi6)}");
 			Console.WriteLine($"Brojevi djeljivi s 2 (ali ne sa 3): {string.Join(",", djeljivi2)}");
